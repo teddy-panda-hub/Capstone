@@ -1,0 +1,12 @@
+<p>chat works!</p>
+<div>
+    <h2>Chat with OpenAI</h2>
+    <textarea [(ngModel)]="prompt" rows="5" cols="50"></textarea><br>
+    <button (click)="sendPrompt()">Send</button>
+  </div>
+  
+  <div *ngIf="response">
+    <h3>Response from OpenAI:</h3>
+    <p>{{ response }}</p>
+  </div>
+  
