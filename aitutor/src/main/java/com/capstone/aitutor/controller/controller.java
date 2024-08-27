@@ -1,24 +1,20 @@
 package com.capstone.aitutor.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.capstone.aitutor.service.service;
+import com.capstone.aitutor.service.OpenAIService;
 
-@CrossOrigin("http://localhost:4200")
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/openai")
 public class controller {
 
     @Autowired
-    private service service;
+    private OpenAIService openAIService;
 
     @PostMapping("/prompt")
     public String getResponse(@RequestBody String prompt) {
-        return service.getOpenAIResponse(prompt);
+        return openAIService.getOpenAIResponse(prompt);
     }
 }
